@@ -1,0 +1,39 @@
+##
+## async (default: true)
+#########【1】
+$.ajax({
+  type: "POST",
+  url: url,
+  data: data,
+  success: success,
+  dataType: dataType
+});
+#########
+#########【2】
+jQuery.post( url [, data ] [, success ] [, dataType ] );
+    -------------
+    url
+    Type: String
+    -------------
+    data
+    Type: PlainObject or String  / A plain object or string that is sent to the server with the request.
+    --------------
+    success
+    Type: Function( PlainObject data, String textStatus, jqXHR jqXHR )
+    -------------
+    dataType
+    Type: String   / (xml, json, script, text, html).
+    -------------
+#########
+var jqxhr = $.post( "example.php", function() {
+  alert( "success" );
+})
+  .done(function() {
+    alert( "second success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "finished" );
+});
